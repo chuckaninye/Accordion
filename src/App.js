@@ -2,7 +2,20 @@ import React, { useState } from 'react';
 import data from './data';
 import SingleQuestion from './Question';
 function App() {
-  return <h2>accordion project setup</h2>;
+  const [questions, setQuestions] = useState(data)
+
+  return (
+    <main >
+      <div className='container'>
+          <h3>Questions And Answers About Login</h3>
+        <secton className='info'>
+          {questions.map((question) => {
+            return <SingleQuestion  key={question.id} {...question} />
+          })}
+        </secton>
+      </div>
+    </main>
+  );
 }
 
 export default App;
